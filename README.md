@@ -70,7 +70,7 @@ legal-contract-analyser/
 └── README.md
 ⚙️ Installation Steps
 Step 1: Clone Repository
-git clone https://github.com/yourusername/legal-contract-analyser.git
+git clone https://github.com/israinamdar493-ops/legal-contract-analyser.git
 cd legal-contract-analyser
 Step 2: Create Virtual Environment
 Windows
