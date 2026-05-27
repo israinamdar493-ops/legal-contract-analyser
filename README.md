@@ -252,7 +252,7 @@ OCR for scanned PDFs
 ✅ Useful for legal-tech applications
 
 ✅ Industry-relevant AI workflow
-
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
 🧪 Technologies Learned
 
 By building this project, you learn:
@@ -266,4 +266,66 @@ LLM integration
 PDF processing
 Streamlit apps
 Semantic search
-AI document QA systems
+AI document QA systeM
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+WORKFLOW ARCHITECTURE:
+                    ┌────────────────────┐
+                    │    Streamlit UI    │
+                    │ Upload PDF / Chat  │
+                    └─────────┬──────────┘
+                              │
+                              ▼
+               ┌──────────────────────────┐
+               │      PyPDFLoader         │
+               │  Load PDF Documents      │
+               └─────────┬────────────────┘
+                         │
+                         ▼
+          ┌───────────────────────────────┐
+          │ RecursiveCharacterTextSplitter│
+          │       Split into Chunks       │
+          └────────────┬──────────────────┘
+                       │
+                       ▼
+          ┌───────────────────────────────┐
+          │ HuggingFaceEmbeddings         │
+          │ Convert Text → Embeddings     │
+          └────────────┬──────────────────┘
+                       │
+                       ▼
+          ┌───────────────────────────────┐
+          │      FAISS Vector Store       │
+          │ Store Chunk Embeddings        │
+          └────────────┬──────────────────┘
+                       │
+─────────────────────────────────────────────────────
+
+                User asks Question
+                       │
+                       ▼
+          ┌───────────────────────────────┐
+          │        Retriever              │
+          │ Semantic Similarity Search    │
+          └────────────┬──────────────────┘
+                       │
+                       ▼
+          ┌───────────────────────────────┐
+          │   Relevant Document Chunks    │
+          └────────────┬──────────────────┘
+                       │
+                       ▼
+          ┌───────────────────────────────┐
+          │     Prompt Template           │
+          │ Context + User Question       │
+          └────────────┬──────────────────┘
+                       │
+                       ▼
+          ┌───────────────────────────────┐
+          │         ChatGroq              │
+          │       Llama 3.3 LLM           │
+          └────────────┬──────────────────┘
+                       │
+                       ▼
+          ┌───────────────────────────────┐
+          │      Final AI Response        │
+          └───────────────────────────────┘
