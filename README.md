@@ -40,26 +40,45 @@ and ask questions directly from the uploaded document using AI-powered Retrieval
 The application follows the RAG (Retrieval-Augmented Generation) architecture.
 
 Flow of Execution
+
 User uploads a PDF legal document.
+
 PDF is loaded using PyPDFLoader.
+
 Document is split into smaller chunks.
+
 Chunks are converted into vector embeddings.
+
 Embeddings are stored inside FAISS vector database.
+
 User asks a question.
+
 Relevant document chunks are retrieved from FAISS.
+
 Retrieved context is sent to Groq LLM.
+
 AI generates accurate answers based only on uploaded document context.
+
 Final response is shown in Streamlit chat UI.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
 🏗️ Tech Stack
 Technology	Purpose
 Python	Backend programming
+
 Streamlit	Web application UI
+
 LangChain	RAG pipeline and orchestration
+
 Groq API	Large Language Model
+
 FAISS	Vector database
+
 HuggingFace Embeddings	Semantic embeddings
+
 PyPDFLoader	PDF text extraction
+
 dotenv	Environment variable management
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 📂 Project Structure
 legal-contract-analyser/
 │
